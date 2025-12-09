@@ -94,7 +94,8 @@ function EmailNotificationSettings() {
     return (
       <div className={styles.switchBox}>
         <p style={{ color: "#666", fontSize: "14px" }}>
-          Notification settings are not enabled. Please enable at least one channel and kind in the{" "}
+          Notification settings are not enabled. Please enable at least one
+          channel and kind in the{" "}
           <a
             href="https://liveblocks.io/dashboard/notifications"
             target="_blank"

@@ -2,8 +2,8 @@
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { DPP } from "@/components/DPP";
 import { DocumentHeader, DocumentHeaderSkeleton } from "@/components/Document";
+import { DPP } from "@/components/DPP";
 import { DocumentLayout, DocumentProviders } from "@/layouts/Document";
 import { ErrorLayout } from "@/layouts/Error";
 import { Document, ErrorData } from "@/types";
@@ -42,4 +42,3 @@ export function DPPDocumentView({ initialDocument, initialError }: Props) {
     </DocumentProviders>
   );
 }
-

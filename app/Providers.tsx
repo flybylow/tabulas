@@ -1,12 +1,12 @@
 "use client";
 
-import React, { ReactNode, useEffect } from "react";
 import { MentionData } from "@liveblocks/client";
 import { LiveblocksProvider } from "@liveblocks/react/suspense";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import Router from "next/router";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
+import React, { ReactNode, useEffect } from "react";
 import { DOCUMENT_URL } from "@/constants";
 import {
   authorizeLiveblocks,

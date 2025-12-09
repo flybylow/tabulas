@@ -9,6 +9,10 @@ export default async function DPPage({ params }: Props) {
   const { id } = await params;
   const { data: document, error } = await getDocument({ documentId: id });
 
-  return <DPPDocumentView initialDocument={document ?? null} initialError={error ?? null} />;
+  return (
+    <DPPDocumentView
+      initialDocument={document ?? null}
+      initialError={error ?? null}
+    />
+  );
 }
-

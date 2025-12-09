@@ -1,7 +1,7 @@
 "use client";
 
-import { useStorage } from "@liveblocks/react/suspense";
 import { LiveMap } from "@liveblocks/client";
+import { useStorage } from "@liveblocks/react/suspense";
 import { ComponentProps } from "react";
 
 interface Props extends ComponentProps<"div"> {
@@ -12,7 +12,11 @@ interface Props extends ComponentProps<"div"> {
  * Marketing Layer - Background layer that marketing team can edit
  * This layer sits behind the DPP layer
  */
-export function MarketingLayer({ canEdit = false, className, ...props }: Props) {
+export function MarketingLayer({
+  canEdit = false,
+  className,
+  ...props
+}: Props) {
   const marketingLayer = useStorage((root) => root.marketingLayer);
 
   if (!marketingLayer || !(marketingLayer instanceof LiveMap)) {
@@ -26,11 +30,13 @@ export function MarketingLayer({ canEdit = false, className, ...props }: Props) 
   }
 
   // Render marketing content from storage
-  const marketingContent = Array.from(marketingLayer.entries()).map(([key, value]) => (
-    <div key={key} className="marketing-item">
-      {JSON.stringify(value)}
-    </div>
-  ));
+  const marketingContent = Array.from(marketingLayer.entries()).map(
+    ([key, value]) => (
+      <div key={key} className="marketing-item">
+        {JSON.stringify(value)}
+      </div>
+    )
+  );
 
   return (
     <div className={`marketing-layer ${className || ""}`} {...props}>
@@ -51,4 +57,3 @@ export function MarketingLayer({ canEdit = false, className, ...props }: Props) 
     </div>
   );
 }
-

@@ -35,7 +35,8 @@ export class NotificationSettingsErrorBoundary extends Component<Props, State> {
       return (
         <div style={{ padding: "20px", color: "#666", fontSize: "14px" }}>
           <p>
-            Notification settings are not enabled. Please enable at least one channel and kind in the{" "}
+            Notification settings are not enabled. Please enable at least one
+            channel and kind in the{" "}
             <a
               href="https://liveblocks.io/dashboard/notifications"
               target="_blank"
@@ -53,4 +54,3 @@ export class NotificationSettingsErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
-

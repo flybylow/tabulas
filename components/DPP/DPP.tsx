@@ -1,9 +1,9 @@
 "use client";
 
-import { MarketingLayer } from "./MarketingLayer";
-import { DPPLayer } from "./DPPLayer";
 import { useSelf } from "@liveblocks/react/suspense";
 import { ComponentProps } from "react";
+import { DPPLayer } from "./DPPLayer";
+import { MarketingLayer } from "./MarketingLayer";
 import styles from "./DPP.module.css";
 
 interface Props extends ComponentProps<"div"> {
@@ -16,11 +16,11 @@ interface Props extends ComponentProps<"div"> {
  * - Marketing Layer (background): Marketing team can edit
  * - DPP Layer (on top): Digital Product Passport data
  */
-export function DPP({ 
-  marketingCanEdit = false, 
+export function DPP({
+  marketingCanEdit = false,
   dppCanEdit = false,
   className,
-  ...props 
+  ...props
 }: Props) {
   const currentUser = useSelf((me) => me?.info);
 
@@ -34,7 +34,7 @@ export function DPP({
       <div className={styles.marketingLayerWrapper}>
         <MarketingLayer canEdit={marketingCanEdit || isMarketing} />
       </div>
-      
+
       {/* Top Layer - DPP */}
       <div className={styles.dppLayerWrapper}>
         <DPPLayer canEdit={dppCanEdit || isDPP} />
@@ -42,4 +42,3 @@ export function DPP({
     </div>
   );
 }
-

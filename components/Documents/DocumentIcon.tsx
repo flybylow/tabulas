@@ -115,7 +115,10 @@ function DPPDocumentIcon(props: ComponentProps<"svg">) {
       {...props}
     >
       {/* Layered document icon representing DPP with marketing layer */}
-      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" opacity="0.3" />
+      <path
+        d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+        opacity="0.3"
+      />
       <path d="M14 2v6h6" opacity="0.5" />
       <path d="M16 4H8a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" />
       <path d="M16 4v4h4" />

@@ -28,14 +28,16 @@ export default async function Index() {
       <Container className={styles.header}>
         <h1 className={styles.headerTitle}>Tabulas</h1>
         <p className={styles.headerTagline}>
-          Digital Product Passport infrastructure that transforms EU compliance into brand experiences.
+          Digital Product Passport infrastructure that transforms EU compliance
+          into brand experiences.
         </p>
       </Container>
 
       <Container className={styles.section}>
         <h2 className={styles.sectionTitle}>The problem</h2>
         <p className={styles.sectionText}>
-          250,000+ EU manufacturers need DPPs by 2027-2030. Most solutions are compliance checklists. We build brand experiences.
+          250,000+ EU manufacturers need DPPs by 2027-2030. Most solutions are
+          compliance checklists. We build brand experiences.
         </p>
       </Container>
 

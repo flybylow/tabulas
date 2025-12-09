@@ -1,7 +1,7 @@
 "use client";
 
-import { useStorage } from "@liveblocks/react/suspense";
 import { LiveObject } from "@liveblocks/client";
+import { useStorage } from "@liveblocks/react/suspense";
 import { ComponentProps } from "react";
 
 interface Props extends ComponentProps<"div"> {
@@ -13,7 +13,9 @@ interface Props extends ComponentProps<"div"> {
  * This layer displays and allows editing of DPP data
  */
 export function DPPLayer({ canEdit = false, className, ...props }: Props) {
-  const dppLayer = useStorage((root) => root.dppLayer) as LiveObject<any> | null;
+  const dppLayer = useStorage(
+    (root) => root.dppLayer
+  ) as LiveObject<any> | null;
 
   if (!dppLayer) {
     return (
@@ -50,4 +52,3 @@ export function DPPLayer({ canEdit = false, className, ...props }: Props) {
     </div>
   );
 }
-

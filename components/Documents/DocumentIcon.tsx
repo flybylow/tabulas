@@ -15,8 +15,6 @@ export function DocumentIcon({ type, ...props }: Props) {
       return <WhiteboardDocumentIcon {...props} />;
     case "note":
       return <NoteDocumentIcon {...props} />;
-    case "dpp":
-      return <DPPDocumentIcon {...props} />;
     default:
       return null;
   }

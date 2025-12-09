@@ -87,16 +87,6 @@ export function DocumentCreatePopover({
           >
             Note
           </Button>
-          <Button
-            icon={<PlusIcon />}
-            onClick={() => {
-              createNewDocument("Untitled", "dpp");
-            }}
-            variant="subtle"
-            disabled={disableButtons}
-          >
-            DPP
-          </Button>
         </div>
       }
       modal

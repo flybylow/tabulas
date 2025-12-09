@@ -19,8 +19,6 @@ const demos = [
 ];
 
 export default async function Index() {
-  const session = await auth();
-
   return (
     <MarketingLayout>
       <Container className={styles.header}>

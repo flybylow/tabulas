@@ -87,7 +87,8 @@ function EmailNotificationSettings() {
   // Render settings that change how notifications webhooks are sent
   // These webhooks can be sent on different channels, with different settings for each
   // Below we're just using the email channel, but you could also add slack or teams, for instance
-  const [notificationSettingsResult, updateSettings] = useNotificationSettings();
+  const [notificationSettingsResult, updateSettings] =
+    useNotificationSettings();
 
   // Handle error case when notification settings are not enabled in Liveblocks dashboard
   if (notificationSettingsResult.error) {

@@ -31,10 +31,8 @@ export function DPP({
 
   // Determine edit permissions based on user name/group
   // TODO: Replace with proper group-based permission checking
-  const isMarketing =
-    currentUser?.name?.toLowerCase().includes("marketing");
-  const isDPP =
-    currentUser?.name?.toLowerCase().includes("dpp") || true; // Allow all for now
+  const isMarketing = currentUser?.name?.toLowerCase().includes("marketing");
+  const isDPP = currentUser?.name?.toLowerCase().includes("dpp") || true; // Allow all for now
 
   return (
     <div className={`${styles.dppContainer} ${className || ""}`} {...props}>

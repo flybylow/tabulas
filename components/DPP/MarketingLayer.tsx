@@ -10,15 +10,20 @@ interface Props extends ComponentProps<"div"> {
 
 /**
  * Marketing Layer - Background layer that marketing team can edit
- * This layer sits behind the DPP layer
+ * This layer sits behind the DPP layer and provides marketing/branding content
+ * that appears as a background to the Digital Product Passport data.
+ *
+ * Uses Liveblocks LiveMap for collaborative editing of marketing content.
  */
 export function MarketingLayer({
   canEdit = false,
   className,
   ...props
 }: Props) {
+  // Get marketing layer data from Liveblocks storage
   const marketingLayer = useStorage((root) => root.marketingLayer);
 
+  // Show placeholder if marketing layer doesn't exist or isn't a LiveMap
   if (!marketingLayer || !(marketingLayer instanceof LiveMap)) {
     return (
       <div className={className} {...props}>
@@ -29,7 +34,7 @@ export function MarketingLayer({
     );
   }
 
-  // Render marketing content from storage
+  // Render marketing content from storage by converting LiveMap entries to array
   const marketingContent = Array.from(marketingLayer.entries()).map(
     ([key, value]) => (
       <div key={key} className="marketing-item">

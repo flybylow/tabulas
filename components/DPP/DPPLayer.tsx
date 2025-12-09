@@ -10,13 +10,18 @@ interface Props extends ComponentProps<"div"> {
 
 /**
  * DPP Layer - Digital Product Passport layer that runs on top of marketing layer
- * This layer displays and allows editing of DPP data
+ * This layer displays and allows editing of DPP data (EU compliance information,
+ * product lifecycle data, sustainability metrics, etc.)
+ *
+ * Uses Liveblocks LiveObject for collaborative editing of DPP data.
  */
 export function DPPLayer({ canEdit = false, className, ...props }: Props) {
+  // Get DPP layer data from Liveblocks storage
   const dppLayer = useStorage(
     (root) => root.dppLayer
   ) as LiveObject<any> | null;
 
+  // Show placeholder if DPP layer doesn't exist in storage
   if (!dppLayer) {
     return (
       <div className={className} {...props}>
@@ -27,7 +32,7 @@ export function DPPLayer({ canEdit = false, className, ...props }: Props) {
     );
   }
 
-  // Get DPP data from storage
+  // Convert LiveObject to plain JavaScript object for rendering
   const dppData = dppLayer.toObject();
 
   return (

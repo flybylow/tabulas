@@ -12,9 +12,13 @@ interface Props extends ComponentProps<"div"> {
 }
 
 /**
- * DPP Component - Layered structure:
- * - Marketing Layer (background): Marketing team can edit
- * - DPP Layer (on top): Digital Product Passport data
+ * DPP Component - Layered structure for Digital Product Passport:
+ * - Marketing Layer (background): Marketing team can edit branding/marketing content
+ * - DPP Layer (on top): Digital Product Passport data for EU compliance
+ *
+ * This component implements the layered architecture where marketing content
+ * appears as a background and DPP data overlays on top, allowing both layers
+ * to be edited independently by different user groups.
  */
 export function DPP({
   marketingCanEdit = false,
@@ -22,11 +26,15 @@ export function DPP({
   className,
   ...props
 }: Props) {
+  // Get current user info from Liveblocks
   const currentUser = useSelf((me) => me?.info);
 
-  // Check if user is in marketing group (you can customize this logic)
-  const isMarketing = currentUser?.name?.toLowerCase().includes("marketing");
-  const isDPP = currentUser?.name?.toLowerCase().includes("dpp") || true; // Allow all for now
+  // Determine edit permissions based on user name/group
+  // TODO: Replace with proper group-based permission checking
+  const isMarketing =
+    currentUser?.name?.toLowerCase().includes("marketing");
+  const isDPP =
+    currentUser?.name?.toLowerCase().includes("dpp") || true; // Allow all for now
 
   return (
     <div className={`${styles.dppContainer} ${className || ""}`} {...props}>

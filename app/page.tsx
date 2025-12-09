@@ -1,7 +1,5 @@
-import { auth, signIn } from "@/auth";
-import { SignInIcon } from "@/icons";
 import { MarketingLayout } from "@/layouts/Marketing";
-import { Button, LinkButton } from "@/primitives/Button";
+import { LinkButton } from "@/primitives/Button";
 import { Container } from "@/primitives/Container";
 import styles from "./page.module.css";
 
@@ -67,20 +65,6 @@ export default async function Index() {
             </LinkButton>
           ))}
         </div>
-      </Container>
-
-      <Container className={styles.cta}>
-        {!session && (
-          <form
-            action={async () => {
-              "use server";
-              await signIn();
-            }}
-            className={styles.actions}
-          >
-            <Button icon={<SignInIcon />}>Get Started</Button>
-          </form>
-        )}
       </Container>
     </MarketingLayout>
   );

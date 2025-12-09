@@ -14,9 +14,14 @@ export function MarketingFooter({
     <footer className={clsx(className, styles.footer)} {...props}>
       <Container className={styles.container}>
         <span className={styles.copyright}>© {year} Tabulas</span>
-        <Link href="/dashboard" className={styles.link}>
-          Dashboard
-        </Link>
+        <div className={styles.links}>
+          <Link href="/signin" className={styles.link}>
+            Get Started
+          </Link>
+          <Link href="/dashboard" className={styles.link}>
+            Dashboard
+          </Link>
+        </div>
       </Container>
     </footer>
   );

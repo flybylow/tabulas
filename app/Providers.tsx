@@ -75,8 +75,6 @@ export function Providers({
         }}
         // Update at 60FPS (every 16ms)
         throttle={16}
-        // Handle large messages by falling back to HTTP instead of websockets
-        largeMessageStrategy="http"
         // Resolve user IDs into name/avatar/etc for Comments/Notifications
         resolveUsers={async ({ userIds }) => {
           const users = await getUsers({ userIds });

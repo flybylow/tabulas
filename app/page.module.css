@@ -74,17 +74,110 @@
 }
 
 .demosList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  align-items: center;
-  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.demoLink {
+.demoCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-surface);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 320px;
+}
+
+.demoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.demoCardImage {
+  position: relative;
   width: 100%;
-  justify-content: center;
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--color-surface);
+  min-height: 200px;
+}
+
+.demoImage {
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.3s ease, filter 0.4s ease;
+  will-change: transform;
+  filter: grayscale(100%);
+}
+
+.demoCard:hover .demoImage {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.demoCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.demoCardContent {
+  position: relative;
+  padding: var(--space-6);
+  z-index: 2;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.demoCardTitle {
+  font-size: var(--size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.demoCardDescription {
+  font-size: var(--size-base);
+  color: var(--color-text-lighter);
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
+}
+
+.demoCardCta {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--size-base);
+  font-weight: 600;
+  color: var(--color-primary, #0066cc);
+  transition: transform 0.2s ease;
+}
+
+.demoCard:hover .demoCardCta {
+  transform: translateX(4px);
 }
 
 .cta {
@@ -96,4 +189,76 @@
   display: flex;
   gap: var(--space-6);
   justify-content: center;
+}
+
+/* Image styles */
+.heroImage {
+  margin-top: var(--space-12);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.sectionImage {
+  margin-top: var(--space-8);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.approachContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.approachImage {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .approachContent {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-12);
+  }
+
+  .approachList {
+    flex: 1;
+  }
+
+  .approachImage {
+    flex: 1;
+  }
+
+  .demosList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .demoCardImage {
+    height: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .demosList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .demoCardImage {
+    height: 280px;
+  }
+
+  .demoCardContent {
+    padding: var(--space-8);
+  }
 }
